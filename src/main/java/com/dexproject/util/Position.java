@@ -11,6 +11,11 @@ public class Position {
         this(0, 0);
     }
 
+    public Position(Position position) {
+        this();
+        this.set(position);
+    }
+
     public Position(int x, int y) {
         this.x = x;
         this.y = y;
@@ -32,6 +37,15 @@ public class Position {
     public void set(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public void move(Direction direction) {
+        switch (direction) {
+            case UP -> this.y--;
+            case DOWN -> this.y++;
+            case RIGHT -> this.x++;
+            case LEFT -> this.x--;
+        }
     }
 
     public Position add(Position position) {
